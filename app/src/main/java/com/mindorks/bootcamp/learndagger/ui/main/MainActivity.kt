@@ -3,7 +3,10 @@ package com.mindorks.bootcamp.learndagger.ui.main
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.mindorks.bootcamp.learndagger.MyApplication
 import com.mindorks.bootcamp.learndagger.R
+import com.mindorks.bootcamp.learndagger.di.component.DaggerActivityComponent
+import com.mindorks.bootcamp.learndagger.di.module.ActivityModule
 import com.mindorks.bootcamp.learndagger.ui.home.HomeFragment
 import javax.inject.Inject
 
@@ -34,13 +37,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getDependencies() {
-        /*
         DaggerActivityComponent
                 .builder()
                 .applicationComponent((application as MyApplication).applicationComponent)
                 .activityModule(ActivityModule(this))
                 .build()
                 .inject(this)
-                */
     }
 }

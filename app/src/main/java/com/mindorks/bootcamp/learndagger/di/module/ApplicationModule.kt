@@ -1,18 +1,21 @@
 package com.mindorks.bootcamp.learndagger.di.module
 
+import android.content.Context
 import com.mindorks.bootcamp.learndagger.MyApplication
 import com.mindorks.bootcamp.learndagger.di.qualifier.ApplicationContext
 import com.mindorks.bootcamp.learndagger.di.qualifier.DatabaseInfo
 import com.mindorks.bootcamp.learndagger.di.qualifier.NetworkInfo
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
 
 @Module
 class ApplicationModule(private var application: MyApplication) {
 
     @ApplicationContext
     @Provides
-    fun provideContext() = application
+    @Singleton
+    fun provideContext(): Context = application
 
     @DatabaseInfo
     @Provides

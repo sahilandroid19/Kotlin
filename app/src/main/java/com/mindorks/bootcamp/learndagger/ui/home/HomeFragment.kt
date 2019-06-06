@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.mindorks.bootcamp.learndagger.MyApplication
 import com.mindorks.bootcamp.learndagger.R
+import com.mindorks.bootcamp.learndagger.di.component.DaggerFragmentComponent
+import com.mindorks.bootcamp.learndagger.di.module.FragmentModule
 import javax.inject.Inject
 
 class HomeFragment : Fragment() {
@@ -18,7 +21,7 @@ class HomeFragment : Fragment() {
         val TAG = "HomeFragment"
 
         fun newInstance(): HomeFragment {
-            val args: Bundle = Bundle()
+            val args = Bundle()
             return HomeFragment().apply {
                 arguments = args
             }
@@ -37,18 +40,17 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (view.findViewById(R.id.tv_message) as TextView).apply {
-            setText(viewModel.getSomeData())
+            text = viewModel.getSomeData()
         }
     }
 
     private fun getDependencies() {
-        /*
         DaggerFragmentComponent
                 .builder()
                 .applicationComponent((context?.applicationContext as MyApplication).applicationComponent)
                 .fragmentModule(FragmentModule(this))
                 .build()
                 .inject(this)
-                */
+
     }
 }
