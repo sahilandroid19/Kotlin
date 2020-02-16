@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViewById<TextView>(R.id.tv_message).apply {
-            setText(mainViewModel.getSomeData())
+            text = mainViewModel.getSomeData()
         }
 
         addHomeFragment()

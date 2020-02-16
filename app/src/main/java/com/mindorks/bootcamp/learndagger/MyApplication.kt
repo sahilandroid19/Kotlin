@@ -23,7 +23,7 @@ class MyApplication : Application() {
         getDependencies()
     }
 
-    fun getDependencies() {
+    private fun getDependencies() {
         applicationComponent = DaggerApplicationComponent
                 .builder()
                 .applicationModule(ApplicationModule(this@MyApplication))
